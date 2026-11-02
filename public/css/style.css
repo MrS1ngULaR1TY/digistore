@@ -1,0 +1,924 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap');
+
+:root {
+    --color-brand: #4f46e5;
+    --color-ink: #1f2937;
+    --color-canvas: #f8f9fa;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f8f9fa;
+    color: #1f2937;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+button, 
+a, 
+input, 
+select {
+    outline-offset: 3px;
+}
+
+button, 
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.app-shell {
+    min-height: 100vh;
+    background: #f8f9fa;
+    overflow: hidden;
+}
+
+.page-width {
+    width: min(1280px, calc(100% - 64px));
+    margin-inline: auto;
+}
+
+/* --- Шапка --- */
+.site-header {
+    background: #fff;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.header-main {
+    height: 78px;
+    display: grid;
+    grid-template-columns: 220px minmax(320px, 560px) 1fr;
+    align-items: center;
+    gap: 28px;
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    width: max-content;
+    color: #111827;
+    font: 800 21px/1 'Montserrat', sans-serif;
+    letter-spacing: -1px;
+    text-decoration: none;
+}
+
+.brand > span:last-child > span {
+    color: #4f46e5;
+}
+
+.brand-mark {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px 10px 10px 3px;
+    background: #4f46e5;
+    box-shadow: 0 6px 16px #4f46e533;
+    color: #fff;
+}
+
+.brand-mark span {
+    font-size: 19px;
+    transform: skew(-6deg);
+}
+
+.search-box {
+    height: 44px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #e1e5ea;
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 0 12px 0 15px;
+    transition: border-color .2s, box-shadow .2s;
+}
+
+.search-box:focus-within {
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px #4f46e51a;
+    background: #fff;
+}
+
+.search-icon {
+    width: 20px;
+    color: #6b7280;
+}
+
+.search-box input {
+    min-width: 0;
+    flex: 1;
+    border: 0;
+    background: transparent;
+    color: #1f2937;
+    font-size: 13px;
+    outline: none;
+}
+
+.search-box input::placeholder {
+    color: #9ca3af;
+}
+
+.search-shortcut {
+    border: 1px solid #e5e7eb;
+    padding: 2px 6px;
+    border-radius: 5px;
+    background: #fff;
+    color: #9ca3af;
+    font-size: 10px;
+}
+
+.header-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 18px;
+}
+
+.account-button, 
+.cart-button {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    color: #374151;
+}
+
+.account-button {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 0;
+}
+
+.round-icon {
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    border: 1px solid #e5e7eb;
+    border-radius: 50%;
+}
+
+.round-icon svg {
+    width: 19px;
+}
+
+.account-copy {
+    display: grid;
+    text-align: left;
+    gap: 1px;
+}
+
+.account-copy small {
+    color: #9ca3af;
+    font-size: 10px;
+}
+
+.account-copy strong {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.cart-button {
+    position: relative;
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border-left: 1px solid #e5e7eb;
+    padding-left: 17px;
+    box-sizing: content-box;
+}
+
+.cart-button svg {
+    width: 22px;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -3px;
+    right: -5px;
+    min-width: 18px;
+    height: 18px;
+    display: grid;
+    place-items: center;
+    padding: 0 4px;
+    border: 2px solid white;
+    border-radius: 20px;
+    background: #f97316;
+    color: #fff;
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.main-nav {
+    border-top: 1px solid #f0f1f3;
+}
+
+.nav-inner {
+    height: 46px;
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.nav-inner a {
+    position: relative;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    color: #6b7280;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.nav-inner a:hover, 
+.nav-inner a.active {
+    color: #4f46e5;
+}
+
+.nav-inner a.active::after {
+    content: '';
+    position: absolute;
+    inset: auto 0 -1px;
+    height: 2px;
+    border-radius: 2px 2px 0 0;
+    background: #4f46e5;
+}
+
+.nav-dot {
+    width: 5px;
+    height: 5px;
+    margin: -10px 0 0 4px;
+    border-radius: 50%;
+    background: #f97316;
+}
+
+.nav-note {
+    margin-left: auto;
+    color: #9ca3af;
+    font-size: 10px;
+}
+
+.nav-note::before {
+    content: '●';
+    margin-right: 7px;
+    color: #22c55e;
+    font-size: 8px;
+}
+
+/* --- Баннер --- */
+.hero {
+    position: relative;
+    min-height: 238px;
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 18px;
+    background: linear-gradient(90deg, #201551 0%, #3b258c 50%, #5924ac 100%);
+    box-shadow: 0 18px 50px #312e8126;
+    color: #fff;
+    isolation: isolate;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background: linear-gradient(90deg, #21164af2 0%, #352278d6 46%, #45248f66 100%), url('https://images.unsplash.com/photo-1635776063043-ab23b4c226f6?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&q=85&w=1600') center/cover;
+}
+
+.hero-copy {
+    padding: 32px 48px;
+    position: relative;
+    z-index: 2;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 10px;
+    border: 1px solid #ffffff3d;
+    border-radius: 20px;
+    background: #ffffff17;
+    color: #e9e7ff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .7px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    margin: 12px 0 8px;
+    font: 700 31px/1.14 'Montserrat', sans-serif;
+    letter-spacing: -.9px;
+}
+
+.hero h1 em {
+    color: #fbbf24;
+    font-style: normal;
+}
+
+.hero p {
+    margin: 0 0 18px;
+    color: #ddd9f6;
+    font-size: 12px;
+}
+
+.hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    background: #fff;
+    padding: 10px 15px;
+    color: #3730a3;
+    font-size: 11px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 8px 25px #14102b33;
+}
+
+.hero-cta svg {
+    width: 15px;
+    transition: transform .2s;
+}
+
+.hero-cta:hover svg {
+    transform: translateX(3px);
+}
+
+.hero-tag {
+    position: absolute;
+    right: 70px;
+    top: 45px;
+    z-index: 2;
+    width: 132px;
+    height: 132px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ffffff38;
+    border-radius: 48% 52% 48% 52% / 58% 45% 55% 42%;
+    background: #f97316e8;
+    box-shadow: 0 0 0 10px #ffffff12, 0 15px 35px #1d0d4d66;
+    transform: rotate(7deg);
+}
+
+.hero-tag strong {
+    font: 800 30px/1 'Montserrat', sans-serif;
+}
+
+.hero-tag span {
+    margin-top: 6px;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* --- Каталог и Фильтры --- */
+.catalog {
+    display: grid;
+    grid-template-columns: 205px minmax(0, 1fr);
+    gap: 34px;
+    padding-block: 29px 34px;
+}
+
+.filters {
+    align-self: start;
+    border: 1px solid #e7e9ed;
+    border-radius: 13px;
+    background: #fff;
+    padding: 18px;
+    box-shadow: 0 5px 20px #11182708;
+}
+
+.filter-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #eef0f2;
+}
+
+.filter-heading h2 {
+    margin: 0;
+    font: 700 15px 'Montserrat', sans-serif;
+}
+
+.filter-heading button {
+    border: 0;
+    background: transparent;
+    color: #6366f1;
+    font-size: 9px;
+    cursor: pointer;
+}
+
+.filters fieldset {
+    margin: 15px 0 0;
+    padding: 0 0 15px;
+    border: 0;
+    border-bottom: 1px solid #eef0f2;
+}
+
+.filters fieldset:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+.filters legend {
+    margin-bottom: 10px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+
+.category-list {
+    display: grid;
+    gap: 4px;
+}
+
+.category-list label {
+    display: flex;
+    align-items: center;
+    border-radius: 7px;
+    padding: 7px 8px;
+    color: #6b7280;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.category-list label.selected {
+    background: #eef2ff;
+    color: #4338ca;
+    font-weight: 600;
+}
+
+.category-list input {
+    width: 12px;
+    height: 12px;
+    margin: 0 8px 0 0;
+    accent-color: #4f46e5;
+}
+
+.category-list small {
+    margin-left: auto;
+    color: #9ca3af;
+    font-size: 9px;
+}
+
+.price-range {
+    display: flex;
+    justify-content: space-between;
+    color: #6b7280;
+    font-size: 9px;
+}
+
+.range {
+    width: 100%;
+    height: 3px;
+    margin-top: 10px;
+    accent-color: #4f46e5;
+    cursor: pointer;
+}
+
+.catalog-heading {
+    min-height: 49px;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.section-kicker {
+    color: #4f46e5;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .8px;
+    text-transform: uppercase;
+}
+
+.catalog-heading h2 {
+    margin: 3px 0 0;
+    font: 700 20px/1.1 'Montserrat', sans-serif;
+    letter-spacing: -.4px;
+}
+
+.sort {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #9ca3af;
+    font-size: 9px;
+}
+
+.sort select {
+    border: 1px solid #e5e7eb;
+    border-radius: 7px;
+    background: #fff;
+    padding: 7px 24px 7px 9px;
+    color: #4b5563;
+    font-size: 9px;
+    cursor: pointer;
+}
+
+/* --- Карточки товаров --- */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 17px;
+}
+
+.product-card {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid #e7e9ed;
+    border-radius: 13px;
+    background: #fff;
+    box-shadow: 0 5px 20px #11182708;
+    transition: transform .22s, box-shadow .22s;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px #11182714;
+}
+
+.product-art {
+    position: relative;
+    height: 148px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+.discount {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    z-index: 3;
+    border-radius: 5px;
+    background: #fb572f;
+    padding: 4px 7px;
+    color: #fff;
+    font-size: 8px;
+    font-weight: 700;
+}
+
+/* Картинка: Книга */
+.product-art.book {
+    background: radial-gradient(circle at 70% 20%, #a5b4fc 0 5%, transparent 25%), linear-gradient(140deg, #eef2ff, #ddd6fe);
+}
+
+.book-cover {
+    width: 85px;
+    height: 112px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 13px;
+    background: linear-gradient(145deg, #1e1b4b, #4f46e5);
+    box-shadow: 9px 10px 16px #312e8145;
+    color: #fff;
+    transform: rotate(-5deg);
+    position: relative;
+}
+
+.book-cover::after {
+    content: '';
+    position: absolute;
+    width: 78px;
+    height: 105px;
+    z-index: -1;
+    margin: -13px;
+    transform: translate(7px, 5px);
+    background: #fff;
+}
+
+.book-cover b {
+    color: #a5b4fc;
+    font-size: 7px;
+    letter-spacing: 2px;
+}
+
+.book-cover strong {
+    margin-top: 5px;
+    font: 800 18px 'Montserrat', sans-serif;
+}
+
+.book-cover span {
+    margin-top: 20px;
+    color: #c7d2fe;
+    font-size: 6px;
+}
+
+/* Картинка: Софт */
+.product-art.software {
+    background: radial-gradient(circle at center, #dbeafe, #eff6ff 67%);
+}
+
+.software-logo {
+    position: relative;
+    width: 78px;
+    height: 78px;
+    display: grid;
+    place-items: center;
+    border-radius: 25px;
+    background: linear-gradient(145deg, #2563eb, #4f46e5 58%, #8b5cf6);
+    box-shadow: 0 14px 25px #4f46e547;
+    color: white;
+    transform: rotate(5deg);
+}
+
+.software-logo span {
+    font: 800 34px 'Montserrat', sans-serif;
+}
+
+.software-logo i {
+    position: absolute;
+    right: -8px;
+    top: -8px;
+    width: 22px;
+    height: 22px;
+    border: 4px solid #fff;
+    border-radius: 50%;
+    background: #22c55e;
+}
+
+/* Картинка: Шаблон */
+.product-art.template {
+    background: linear-gradient(145deg, #fff7ed, #ffedd5);
+}
+
+.slides {
+    position: relative;
+    width: 120px;
+    height: 88px;
+    border: 5px solid #fff;
+    border-radius: 5px;
+    background: #111827;
+    box-shadow: 8px 10px 20px #9a341233;
+    color: #fff;
+    transform: rotate(-3deg);
+}
+
+.slides::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 70% 30%, #f97316 0 8%, transparent 9%), linear-gradient(135deg, transparent 55%, #ea580c 56%);
+}
+
+.slides b {
+    position: absolute;
+    left: 10px;
+    bottom: 11px;
+    z-index: 1;
+    font: 700 14px 'Montserrat', sans-serif;
+    letter-spacing: 2px;
+}
+
+.product-info {
+    padding: 13px 14px 14px;
+}
+
+.product-type {
+    color: #8b5cf6;
+    font-size: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+
+.product-info h3 {
+    min-height: 34px;
+    margin: 5px 0 4px;
+    color: #1f2937;
+    font: 600 12px/1.35 'Montserrat', sans-serif;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    color: #9ca3af;
+    font-size: 9px;
+}
+
+.rating svg {
+    width: 11px;
+    color: #f59e0b;
+}
+
+.rating strong {
+    color: #374151;
+}
+
+.product-bottom {
+    margin-top: 11px;
+    padding-top: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #f0f1f3;
+}
+
+.price {
+    display: flex;
+    flex-direction: column;
+}
+
+.price strong {
+    color: #4f46e5;
+    font: 700 16px 'Montserrat', sans-serif;
+}
+
+.price del {
+    color: #9ca3af;
+    font-size: 8px;
+}
+
+.product-bottom button {
+    height: 32px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: 0;
+    border-radius: 7px;
+    background: #4f46e5;
+    padding: 0 10px;
+    box-shadow: 0 6px 12px #4f46e52e;
+    color: #fff;
+    font-size: 9px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .2s, transform .2s;
+}
+
+.product-bottom button:hover {
+    background: #4338ca;
+    transform: translateY(-1px);
+}
+
+.product-bottom button svg {
+    width: 14px;
+}
+
+/* --- Подвал --- */
+footer {
+    background: #151827;
+    color: #fff;
+}
+
+.footer-inner {
+    min-height: 108px;
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    gap: 48px;
+}
+
+.brand-light {
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.footer-inner > div:first-child p {
+    margin: 8px 0 0;
+    color: #858b9f;
+    font-size: 9px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: #b7bdca;
+    font-size: 9px;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: #fff;
+}
+
+.footer-inner > span {
+    color: #6b7280;
+    font-size: 8px;
+}
+
+/* --- Адаптивность (Media Queries) --- */
+@media (max-width: 900px) {
+    .page-width {
+        width: min(100% - 32px, 720px);
+    }
+    
+    .header-main {
+        height: auto;
+        grid-template-columns: 1fr auto;
+        padding-block: 16px;
+    }
+    
+    .search-box {
+        grid-column: 1 / -1;
+        grid-row: 2;
+    }
+    
+    .account-copy, 
+    .nav-note {
+        display: none;
+    }
+    
+    .nav-inner {
+        gap: 22px;
+        overflow-x: auto;
+    }
+    
+    .hero-tag {
+        right: 35px;
+    }
+    
+    .catalog {
+        grid-template-columns: 1fr;
+    }
+    
+    .filters {
+        display: none;
+    }
+    
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding-block: 26px;
+    }
+}
+
+@media (max-width: 600px) {
+    .page-width {
+        width: min(100% - 24px, 420px);
+    }
+    
+    .main-nav {
+        display: none;
+    }
+    
+    .header-main {
+        gap: 12px;
+    }
+    
+    .header-actions {
+        gap: 8px;
+    }
+    
+    .hero {
+        min-height: 315px;
+        align-items: flex-start;
+    }
+    
+    .hero-copy {
+        padding: 30px 24px;
+    }
+    
+    .hero h1 {
+        font-size: 27px;
+    }
+    
+    .hero-tag {
+        right: 24px;
+        top: auto;
+        bottom: 25px;
+        width: 100px;
+        height: 100px;
+    }
+    
+    .catalog-heading {
+        gap: 16px;
+    }
+    
+    .sort > span {
+        display: none;
+    }
+    
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-links {
+        flex-wrap: wrap;
+    }
+}
