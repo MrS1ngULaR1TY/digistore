@@ -61,7 +61,7 @@
                     <p>Цифрові інструменти для великих ідей.</p>
                 </div>
                 <div class="footer-links"><a href="mailto:hello@digistore.ua">hello@digistore.ua</a><a href="#">Instagram</a><a href="#">Telegram</a></div>
-                <span>© 2025 DigiStore. Всі права захищено.</span>
+                <span>© 2026 DigiStore. Всі права захищено.</span>
             </div>
         </footer>
     </div>
