@@ -9,7 +9,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::all(); // Берем все товары из базы
-        return view('products.index', compact('products')); // Передаем их на страницу
+        $products = Product::all(); 
+        return view('products.index', compact('products')); 
     }
 }
